@@ -19,7 +19,7 @@ export default class BbqContainer extends React.Component {
   render() {
     return(
       <div>
-      hola
+        <h3>Fire up the grill at a local BBQ</h3>
       </div>
     )
   }
