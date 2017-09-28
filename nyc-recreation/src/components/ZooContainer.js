@@ -1,5 +1,7 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom'
+import ZooList from './lists/ZooList.js'
+
 
 export default class ZooContainer extends React.Component {
 
@@ -14,13 +16,15 @@ export default class ZooContainer extends React.Component {
   componentDidMount() {
     fetch('http://localhost:3000/api/v1/zoos')
     .then((resp)=>resp.json())
-    .then((data) => console.log(data))
+    .then((data) => this.setState({
+      zoos: data
+    }))
   }
 
   render() {
     return(
       <div>
-      hola
+      zoos
       </div>
     )
   }

@@ -1,5 +1,7 @@
 import React from 'react'
 import { Route, Link } from 'react-router-dom'
+import PoolList from './lists/PoolList.js'
+
 
 export default class PoolContainer extends React.Component {
 
@@ -14,13 +16,15 @@ export default class PoolContainer extends React.Component {
   componentDidMount() {
     fetch('http://localhost:3000/api/v1/pools')
     .then((resp)=>resp.json())
-    .then((data) => console.log(data))
+    .then((data) => this.setState({
+      pools: data
+    }))
   }
 
   render() {
     return(
       <div>
-      hola
+        <PoolList poolList={this.state.pools}/>
       </div>
     )
   }
