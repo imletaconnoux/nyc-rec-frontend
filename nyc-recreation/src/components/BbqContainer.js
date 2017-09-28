@@ -25,11 +25,11 @@ export default class BbqContainer extends React.Component {
       return(
         <div>
           <h3>Fire up the grill at a local BBQ</h3>
-          <BbqList bbqlist={this.state.bbqs}/>
-            <Route path="/bbqs/:id" render={(routeProps) => {
+          <Route exact path="/bbqs" render={(props) => <BbqList bbqlist={this.state.bbqs} {...props}/>}/>
+          <Route path="/bbqs/:id" render={(routeProps) => {
                 console.log(routeProps);
-                const id = routeProps.match.params.id
-                  const bbq = this.state.bbq[id]
+                  const id = routeProps.match.params.id
+                  const bbq = this.state.bbqs[id]
                   return <BbqDetails {...bbq}/>
 
               }}/>
@@ -38,7 +38,7 @@ export default class BbqContainer extends React.Component {
     } else {
       return (
         <div>
-            <h3>Fire up the grill at a local BBQ</h3>
+
         </div>
       )
     }

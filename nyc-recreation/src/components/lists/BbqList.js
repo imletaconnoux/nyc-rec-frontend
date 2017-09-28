@@ -11,6 +11,7 @@ const BbqList = (props) => {
   })
   return (
     <div>
+      <h3>Fire up the grill at a local BBQ</h3>
       <ol>
         {mappedList}
       </ol>

@@ -13,10 +13,10 @@ class App extends Component {
     return (
       <div className="App">
         <NavLink/>
-        <Route exact path="/pools" render={(props) => <PoolContainer {...props}/>}/>
-        <Route exact path="/bbqs" component={BbqContainer}/>
-        <Route exact path="/tennis" component={TennisContainer}/>
-        <Route exact path ="/zoos" component={ZooContainer}/>
+        <PoolContainer/>
+        <BbqContainer/>
+        <TennisContainer/>
+        <ZooContainer/>
 
       </div>
     );
