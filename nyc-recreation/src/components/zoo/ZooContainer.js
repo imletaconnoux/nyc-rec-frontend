@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom'
 import ZooList from './ZooList.js'
-
+import ZooDetails from './ZooDetails.js'
 
 export default class ZooContainer extends React.Component {
 
@@ -22,10 +22,24 @@ export default class ZooContainer extends React.Component {
   }
 
   render() {
-    return(
-      <div>
-      zoos
-      </div>
-    )
+    if (this.state.zoos) {
+      return(
+        <div>
+          <Route exact path="/zoos" render={(props) => <ZooList zooList={this.state.zoos} {...props}/>}/>
+          <Route path="/zoos/:id" render={(routeProps) => {
+              const id = routeProps.match.params.id
+              const zoo = this.state.zoos[id]
+              return <ZooDetails thisZoo={zoo}
+                {...routeProps}/>
+            }}/>
+        </div>
+      )
+    } else {
+      return (
+        <div>
+
+        </div>
+      )
+    }
   }
 }
