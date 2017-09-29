@@ -1,11 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+
 const TennisItem = (props) => {
   return(
-    <li>
+    <a class="item">
       <Link to={`/tennis/${props.court.id}`}>{props.court.Name}</Link>
-    </li>
+    </a>
   )
 }
 

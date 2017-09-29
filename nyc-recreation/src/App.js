@@ -6,19 +6,18 @@ import BbqContainer from './components/bbq/BbqContainer.js'
 import TennisContainer from './components/tenni/TennisContainer.js'
 import ZooContainer from './components/zoo/ZooContainer.js'
 import { Route, Link } from 'react-router-dom'
-import NavLink from './components/Nav.js'
+import Nav from './components/Nav.js'
 import WeatherContainer from './components/WeatherContainer.js'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <NavLink/>
+        <Route path="/" render={(routeProps) => <Nav {...routeProps}/>}/>
         <PoolContainer/>
         <BbqContainer/>
         <TennisContainer/>
         <ZooContainer/>
-
         <Route exact path="/" component={WeatherContainer}/>
       </div>
     );

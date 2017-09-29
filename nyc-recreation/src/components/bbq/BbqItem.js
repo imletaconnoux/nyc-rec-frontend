@@ -11,10 +11,9 @@ class BbqItem extends React.Component {
 
   render() {
     return (
-      <li>
-      <Link to={`/bbqs/${this.state.bbq.id}`}>{this.state.bbq.Name}</Link>
-
-      </li>
+      <a class="item">
+        <Link to={`/bbqs/${this.state.bbq.id}`}>{this.state.bbq.Name}</Link>
+      </a>
     )
   }
 

@@ -9,9 +9,9 @@ const PoolList = (props) => {
   return (
     <div>
       <h3>Take your chances at the public pool!</h3>
-      <ol>
+      <div class="ui ordered list">
       {mappedList}
-      </ol>
+    </div>
     </div>
   )
 }

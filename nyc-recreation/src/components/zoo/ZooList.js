@@ -9,9 +9,9 @@ const ZooList = (props) => {
   return (
     <div>
       <h3>Show your wild side at these NYC zoos</h3>
-      <ol>
+        <div class="ui ordered list">
         {mappedList}
-      </ol>
+      </div>
     </div>
   )
 }

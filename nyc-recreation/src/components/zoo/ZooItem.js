@@ -3,9 +3,9 @@ import {Route, Link} from 'react-router-dom'
 
 const ZooItem = (props) => {
     return (
-      <li>
+      <a class="item">
         <Link to={`/zoos/${props.zoo.id}`}>{props.zoo.Name}</Link>
-      </li>
+      </a>
     )
 
 }
