@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Link } from 'react-router-dom'
-import BbqItem from './items/BbqItem.js'
-import BbqDetails from './items/BbqDetails.js'
+import BbqItem from './BbqItem.js'
+import BbqDetails from './BbqDetails.js'
 
 
 const BbqList = (props) => {

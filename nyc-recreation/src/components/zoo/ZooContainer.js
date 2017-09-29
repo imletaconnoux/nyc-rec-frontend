@@ -1,30 +1,30 @@
-import React from 'react'
+import React from 'react';
 import { Route, Link } from 'react-router-dom'
-import PoolList from './lists/PoolList.js'
+import ZooList from './ZooList.js'
 
 
-export default class PoolContainer extends React.Component {
+export default class ZooContainer extends React.Component {
 
   constructor(){
     super();
 
     this.state = {
-      pools: null
+      zoos: null
     }
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/api/v1/pools')
+    fetch('http://localhost:3000/api/v1/zoos')
     .then((resp)=>resp.json())
     .then((data) => this.setState({
-      pools: data
+      zoos: data
     }))
   }
 
   render() {
     return(
       <div>
-        <PoolList poolList={this.state.pools}/>
+      zoos
       </div>
     )
   }

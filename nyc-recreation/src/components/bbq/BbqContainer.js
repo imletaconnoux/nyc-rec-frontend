@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Link } from 'react-router-dom'
-import BbqList from './lists/BbqList.js'
-import BbqDetails from './lists/items/BbqDetails.js'
+import BbqList from './BbqList.js'
+import BbqDetails from './BbqDetails.js'
 
 export default class BbqContainer extends React.Component {
 

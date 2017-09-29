@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom'
-import TennisList from './lists/TennisList.js'
+import TennisList from './TennisList.js'
 
 
 export default class TennisContainer extends React.Component {
@@ -22,10 +22,13 @@ export default class TennisContainer extends React.Component {
   }
 
   render() {
-    return(
-      <div>
-      tennis
-      </div>
-    )
+    if(this.state.courts) {
+
+      return(
+        <div>
+          tennis
+        </div>
+      )
+    }
   }
 }
