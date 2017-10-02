@@ -7,7 +7,8 @@ class LoginForm extends React.Component{
 
     this.state = {
       usernameInput: "",
-      passwordInput: ""
+      passwordInput: "",
+      newUser: false
     }
   }
 
@@ -47,6 +48,18 @@ handlePasswordChange = (event) => {
             </div>
             <div className="six wide field">
              <input type="password" value={this.state.passwordInput} onChange={this.handlePasswordChange} placeholder="password"/>
+            </div>
+            <div className="radio">
+              <label>
+                <input type="radio" name="new"/>
+                New User
+              </label>
+            </div>
+            <div className="radio">
+              <label>
+                <input type="radio" name="existing"/>
+                Existing
+              </label>
             </div>
             <input type="submit"/>
           </div>

@@ -7,7 +7,6 @@ class Nav extends React.Component{
 
 
   render() {
-    console.log(this.props)
     if (localStorage.getItem('jwtToken')){
       return (
         <div className="ui secondary menu">
@@ -16,6 +15,7 @@ class Nav extends React.Component{
           <NavLink activeClassName="active" className="item" to="/bbqs">BBQ areas</NavLink>
           <NavLink activeClassName="active" className="item" to="/tennis">Tennis Courts</NavLink>
           <NavLink activeClassName="active" className="item" to="/zoos">Zoos</NavLink>
+          <NavLink activeClassName="active" className="item" to="/users/me">My Profile</NavLink>
           <NavLink activeClassName="active" className="right item" onClick={this.props.onLogout} to="/">Log Out</NavLink>
         </div>
       )

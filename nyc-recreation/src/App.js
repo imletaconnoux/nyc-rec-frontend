@@ -30,6 +30,10 @@ class App extends Component {
       })
   }
 
+  componentDidMount() {
+    //fetch request to backend for refresh_page method
+  }
+
   logout = () => {
     logoutUser()
     this.setState({
@@ -39,7 +43,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state)
 
     return (
       <div className="App">
@@ -49,7 +52,7 @@ class App extends Component {
         <TennisContainer/>
         <ZooContainer/>
         <Route exact path="/" component={WeatherContainer}/>
-        <UserContainer onLogin={this.login} />
+        <UserContainer onLogin={this.login} user={this.state.user}/>
       </div>
     );
   }
