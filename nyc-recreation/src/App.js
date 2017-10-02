@@ -8,6 +8,7 @@ import ZooContainer from './components/zoo/ZooContainer.js'
 import { Route, Link } from 'react-router-dom'
 import Nav from './components/Nav.js'
 import WeatherContainer from './components/WeatherContainer.js'
+import UserContainer from './components/user/UserContainer.js'
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
         <TennisContainer/>
         <ZooContainer/>
         <Route exact path="/" component={WeatherContainer}/>
+        <UserContainer />
       </div>
     );
   }
