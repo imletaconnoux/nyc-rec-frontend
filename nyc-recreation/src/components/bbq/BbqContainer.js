@@ -24,9 +24,8 @@ export default class BbqContainer extends React.Component {
     if (this.state.bbqs){
       return(
         <div>
-          <Route exact path="/bbqs" render={(props) => <BbqList bbqlist={this.state.bbqs} {...props}/>}/>
+          <Route exact path="/bbqs" render={(props) => <BbqList bbqList={this.state.bbqs} {...props}/>}/>
           <Route path="/bbqs/:id" render={(routeProps) => {
-                console.log(routeProps);
                   const id = routeProps.match.params.id
                   const bbq = this.state.bbqs[id]
                   return <BbqDetails thisBbq={bbq} {...routeProps}/>

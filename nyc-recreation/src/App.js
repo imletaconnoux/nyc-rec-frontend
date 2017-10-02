@@ -9,7 +9,7 @@ import { Route, Link } from 'react-router-dom'
 import Nav from './components/Nav.js'
 import WeatherContainer from './components/WeatherContainer.js'
 import UserContainer from './components/user/UserContainer.js'
-import { loginUser, logoutUser } from './services/user'
+import { loginUser, logoutUser, loadUserPrefs } from './services/user'
 import Authorize from './components/Authorize'
 
 class App extends Component {
@@ -32,6 +32,12 @@ class App extends Component {
 
   componentDidMount() {
     //fetch request to backend for refresh_page method
+    loadUserPrefs().then((data) =>
+    this.setState({
+      user: data.user,
+      isLoggedIn: true
+      })
+    )
   }
 
   logout = () => {
@@ -43,7 +49,6 @@ class App extends Component {
   }
 
   render() {
-
     return (
       <div className="App">
         <Route path="/" render={(routeProps) => <Nav onLogout={this.logout} {...routeProps}/>}/>

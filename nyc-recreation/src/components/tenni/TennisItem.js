@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const TennisItem = (props) => {
   return(
-    <a class="item">
+    <a className="item">
       <Link to={`/tennis/${props.court.id}`}>{props.court.Name}</Link>
     </a>
   )

@@ -11,7 +11,7 @@ class BbqItem extends React.Component {
 
   render() {
     return (
-      <a class="item">
+      <a className="item">
         <Link to={`/bbqs/${this.state.bbq.id}`}>{this.state.bbq.Name}</Link>
       </a>
     )

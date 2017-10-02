@@ -4,7 +4,6 @@ class PoolDetails extends React.Component {
 
   render(){
     const pool = this.props.thisPool
-    console.log(pool)
   
     return (
       <div>

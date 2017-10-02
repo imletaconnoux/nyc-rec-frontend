@@ -5,7 +5,7 @@ class PoolItem extends React.Component {
 
   render(){
     return(
-      <a class="item">
+      <a className="item">
         <Link to={`/pools/${this.props.pool.id}`}>{this.props.pool.Name}</Link>
       </a>
     )

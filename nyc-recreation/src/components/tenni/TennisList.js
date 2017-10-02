@@ -9,7 +9,7 @@ const TennisList = (props) => {
   return (
     <div>
     <h3>Match Set: Play some tennis!</h3>
-      <div class="ui ordered list">
+      <div className="ui ordered list">
       {mappedList}
       </div>
     </div>

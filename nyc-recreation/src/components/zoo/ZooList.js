@@ -9,7 +9,7 @@ const ZooList = (props) => {
   return (
     <div>
       <h3>Show your wild side at these NYC zoos</h3>
-        <div class="ui ordered list">
+      <div className="ui ordered list">
         {mappedList}
       </div>
     </div>
