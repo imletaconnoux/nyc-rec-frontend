@@ -11,11 +11,16 @@ class LoginForm extends React.Component{
     }
   }
 
-  handleSubmit = () => {
+  handleSubmit = (event) => {
+    event.preventDefault()
     if (this.state.usernameInput !== "" && this.state.passwordInput !== ""){
       const user = { username: this.state.usernameInput, password: this.state.passwordInput }
-      this.props.handleLoginSubmit(user)
+      this.props.onSubmit(user)
     }
+    this.setState({
+      usernameInput: "",
+      passwordInput: ""
+    })
   }
 
 handleUsernameChange = (event) => {
@@ -35,13 +40,13 @@ handlePasswordChange = (event) => {
     return(
       <div>
        <h3>Welcome to NYC Recreation! Log in or create a new account below</h3>
-        <form onSubmit={this.handleSubmit} class="ui form">
-          <div class ="center fields">
-            <div class="six wide field">
+        <form onSubmit={this.handleSubmit} className="ui form">
+          <div className ="center fields">
+            <div className="six wide field">
               <input type="text" value={this.state.usernameInput} onChange={this.handleUsernameChange} placeholder="username" />
             </div>
-            <div class="six wide field">
-             <input type="text" value={this.state.passwordInput} onChange={this.handlePasswordChange} placeholder="username"/>
+            <div className="six wide field">
+             <input type="password" value={this.state.passwordInput} onChange={this.handlePasswordChange} placeholder="password"/>
             </div>
             <input type="submit"/>
           </div>

@@ -9,18 +9,47 @@ import { Route, Link } from 'react-router-dom'
 import Nav from './components/Nav.js'
 import WeatherContainer from './components/WeatherContainer.js'
 import UserContainer from './components/user/UserContainer.js'
+import { loginUser, logoutUser } from './services/user'
+import Authorize from './components/Authorize'
 
 class App extends Component {
+
+  state = {
+    user: {},
+    isLoggedIn: false
+  }
+
+  login = (loginParams) => {
+    loginUser(loginParams)
+      .then((user) => {
+        localStorage.setItem("jwtToken", user.jwt)
+        this.setState({
+          user,
+          isLoggedIn: true
+        })
+      })
+  }
+
+  logout = () => {
+    logoutUser()
+    this.setState({
+      user: null,
+      isLoggedIn: false
+    })
+  }
+
   render() {
+    console.log(this.state)
+
     return (
       <div className="App">
-        <Route path="/" render={(routeProps) => <Nav {...routeProps}/>}/>
+        <Route path="/" render={(routeProps) => <Nav onLogout={this.logout} {...routeProps}/>}/>
         <PoolContainer/>
         <BbqContainer/>
         <TennisContainer/>
         <ZooContainer/>
         <Route exact path="/" component={WeatherContainer}/>
-        <UserContainer />
+        <UserContainer onLogin={this.login} />
       </div>
     );
   }

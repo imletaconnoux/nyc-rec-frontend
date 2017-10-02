@@ -1,31 +1,25 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 import LoginForm from './LoginForm.js'
+import Authorize from '../Authorize'
+
 
 class UserContainer extends React.Component{
 
-  constructor(){
 
-    super()
 
-    this.state = {
-      username: "",
-      password: "",
-    }
-}
+
 
   handleLoginSubmit = (user) => {
-    this.setState({
-      username: user.username,
-      password: user.password
-    })
-
+    this.props.onLogin(user)
   }
 
   render(){
+    const AuthLoginForm = Authorize(LoginForm)
+    console.log(this.state)
     return(
       <div>
-        <Route exact path="/login" render={(props) => <LoginForm onSubmit={this.handleLoginSubmit}  {...props}/> }/>
+        <Route exact path="/login" render={(props) => <AuthLoginForm onSubmit={this.handleLoginSubmit}  {...props}/> }/>
       </div>
     )
   }
