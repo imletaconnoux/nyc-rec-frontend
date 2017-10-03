@@ -29,9 +29,11 @@ export default class TennisContainer extends React.Component {
         <div>
           <Route exact path ="/tennis" render={(props) => <TennisList tennisList={this.state.courts} {...props}/>}/>
           <Route exact path="/tennis/:id" render={(routeProps) => {
-              const id = routeProps.match.params.id
-              const court = this.state.courts[id]
-              return <TennisDetails thisCourt={court} {...routeProps}/>
+              const id = parseInt(routeProps.match.params.id)
+              const tenni = this.state.courts.filter((tenni) => {
+                return tenni.id === id
+              })
+              return <TennisDetails thisCourt={tenni[0]} {...routeProps}/>
             }}/>
         </div>
       )

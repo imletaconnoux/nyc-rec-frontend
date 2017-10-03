@@ -1,6 +1,6 @@
 import React from 'react'
 import { loadUserPrefs } from '../../services/user'
-import MyBbqList from './MyBbqList'
+import MyList from './MyList'
 
 export default class UserProfileContainer extends React.Component {
 
@@ -34,8 +34,8 @@ export default class UserProfileContainer extends React.Component {
       // this.loadUserPrefs()
       return (
         <div>
-          {this.state.user}
-          <MyBbqList user={this.state.user} bbqList={this.state.bbqs}/>
+          <h2>Welcome {this.state.user}!</h2>
+          <MyList locations={this.state}/>
         </div>
       )
     } else {

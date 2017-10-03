@@ -4,7 +4,7 @@ class PoolDetails extends React.Component {
 
   render(){
     const pool = this.props.thisPool
-  
+
     return (
       <div>
         <h3>{pool.Name}</h3>
@@ -12,9 +12,6 @@ class PoolDetails extends React.Component {
         <p>Phone: {pool.Phone}</p>
         <p>Setting: {pool.Setting}</p>
         <p>Size: {pool.Size}</p>
-
-
-
       </div>
 
     )

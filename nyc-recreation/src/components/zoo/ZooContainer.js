@@ -27,10 +27,11 @@ export default class ZooContainer extends React.Component {
         <div>
           <Route exact path="/zoos" render={(props) => <ZooList zooList={this.state.zoos} {...props}/>}/>
           <Route path="/zoos/:id" render={(routeProps) => {
-              const id = routeProps.match.params.id
-              const zoo = this.state.zoos[id]
-              return <ZooDetails thisZoo={zoo}
-                {...routeProps}/>
+              const id = parseInt(routeProps.match.params.id)
+              const zoo = this.state.zoos.filter((zoo) => {
+                return zoo.id === id
+              })
+              return <ZooDetails thisZoo={zoo[0]} {...routeProps}/>
             }}/>
         </div>
       )

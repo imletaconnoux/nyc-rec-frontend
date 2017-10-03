@@ -22,17 +22,27 @@ export default class PoolContainer extends React.Component {
   }
 
   render() {
+    if (this.state.pools) {
     return(
       <div>
         <Route exact path="/pools" render={(props) => <PoolList poolList={this.state.pools} {...props}/>}/>
         <Route exact path="/pools/:id" render={(routeProps) => {
-          const id = routeProps.match.params.id
-          const pool = this.state.pools[id]
-          return <PoolDetails thisPool={pool} {...routeProps}/>
+          const id = parseInt(routeProps.match.params.id)
+          const pool = this.state.pools.filter((pool) => {
+            return pool.id === id
+          })
+          return <PoolDetails thisPool={pool[0]} {...routeProps}/>
 
         }}/>
 
       </div>
     )
+  } else {
+    return (
+      <div>
+
+      </div>
+    )
+  }
   }
 }
