@@ -1,15 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-class PoolItem extends React.Component {
+const PoolItem = (props) => {
 
-  render(){
-    return(
-      <a className="item">
-        <Link to={`/pools/${this.props.pool.id}`}>{this.props.pool.Name}</Link>
-      </a>
-    )
+  const handleClick = (event) => {
+    props.save(props.pool)
   }
+    return(
+      <div>
+        <a className="item">
+          <Link to={`/pools/${props.pool.id}`}>{props.pool.Name}</Link>
+        </a>
+      </div>
+    )
 }
 
 export default PoolItem

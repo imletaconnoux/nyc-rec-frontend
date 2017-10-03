@@ -32,7 +32,7 @@ const mappedBbqsList = (function () {
 const mappedTennisList = (function () {
   if (props.locations.tennis.length > 0) {
     const tennis = props.locations.tennis.map((tenni, index) => {
-      return (<TennisItem key={index} tenni={tenni.tennis_info}/>)
+      return (<TennisItem key={index} court={tenni.tenni_info}/>)
     })
     return tennis
   } else {
@@ -43,14 +43,14 @@ const mappedTennisList = (function () {
   const mappedPoolsList = (function() {
 
   if (props.locations.pools.length > 0) {
-      props.locations.pools.map((pool, index) => {
+      const pools = props.locations.pools.map((pool, index) => {
       return (<PoolItem key={index} pool={pool.pool_info}/>)
   })
+  return pools
 } else {
       return (<p>You have no saved pools. View NYC pools <Link to="/pools"> here</Link></p>)
     }
   })()
-  console.log(mappedZoosList);
   return (
     <div>
       <h3>Your Favorite Zoos </h3>

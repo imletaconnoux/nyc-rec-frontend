@@ -2,6 +2,7 @@ import React from 'react'
 import { Route, Link } from 'react-router-dom'
 import BbqList from './BbqList.js'
 import BbqDetails from './BbqDetails.js'
+import { saveLocation } from '../../services/user'
 
 export default class BbqContainer extends React.Component {
 
@@ -20,6 +21,11 @@ export default class BbqContainer extends React.Component {
     }))
   }
 
+  saveLocation = (bbq) => {
+    const bbqObject = {bbq_id: bbq.id}
+    saveLocation(bbqObject)
+  }
+
   render() {
     if (this.state.bbqs){
       return(
@@ -30,7 +36,7 @@ export default class BbqContainer extends React.Component {
                   const bbq = this.state.bbqs.filter((bbq) => {
                     return bbq.id === id
                   })
-                  return <BbqDetails thisBbq={bbq[0]} {...routeProps}/>
+                  return <BbqDetails thisBbq={bbq[0]} {...routeProps} save={this.saveLocation}/>
 
               }}/>
         </div>

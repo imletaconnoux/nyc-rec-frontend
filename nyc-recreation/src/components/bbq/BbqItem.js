@@ -1,22 +1,19 @@
 import React from 'react'
 import { Route, Link } from 'react-router-dom'
-import BbqDetails from './BbqDetails.js'
 
 
-class BbqItem extends React.Component {
+const BbqItem = (props) => {
 
-  state = {
-    bbq: this.props.bbq
+  const handleClick = (event) => {
+    props.save(props.bbq)
   }
-
-  render() {
     return (
-      <a className="item">
-        <Link to={`/bbqs/${this.state.bbq.id}`}>{this.state.bbq.Name}</Link>
-      </a>
+      <div>
+        <a className="item">
+          <Link to={`/bbqs/${props.bbq.id}`}>{props.bbq.Name}</Link>
+        </a>
+      </div>
     )
-  }
-
 }
 
 

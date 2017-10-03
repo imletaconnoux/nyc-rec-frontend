@@ -4,14 +4,14 @@ import PoolItem from './PoolItem.js'
 
 const PoolList = (props) => {
   const mappedList = props.poolList.map((pool, index) => {
-    return(<PoolItem key={index} pool={pool}/>)
+    return(<PoolItem key={index} pool={pool} save={props.save}/>)
   })
   return (
     <div>
       <h3>Take your chances at the public pool!</h3>
       <div className="ui ordered list">
-      {mappedList}
-    </div>
+        {mappedList}
+      </div>
     </div>
   )
 }

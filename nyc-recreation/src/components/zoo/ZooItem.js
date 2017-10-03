@@ -11,7 +11,7 @@ const ZooItem = (props) => {
     return (
       <div>
         <a className="item">
-          <Link to={`/zoos/${props.zoo.id}`}>{props.zoo.Name}</Link><button onClick={handleClick}>Save to your list</button><br/>
+          <Link to={`/zoos/${props.zoo.id}`}>{props.zoo.Name}</Link><br/>
         </a>
       </div>
     )

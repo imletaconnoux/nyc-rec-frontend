@@ -33,10 +33,11 @@ class App extends Component {
   componentDidMount() {
     //fetch request to backend for refresh_page method
     loadUserPrefs().then((data) =>
-    this.setState({
-      user: data.user,
-      isLoggedIn: true
-      })
+    console.log(data)
+    // this.setState({
+    //   user: data.user,
+    //   isLoggedIn: true
+    //   })
     )
   }
 

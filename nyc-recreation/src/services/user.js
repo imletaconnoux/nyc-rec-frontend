@@ -31,15 +31,28 @@ export function loadUserPrefs(){
 }
 
 export function saveLocation(locationObject){
+  const body = JSON.stringify(locationObject)
+  const jwt = localStorage.getItem("jwtToken")
+  return fetch("http://localhost:3000/api/v1/users/me", {
+    method: 'PATCH',
+    body: body,
+    headers: {
+        "Authorization": "Bearer " + jwt,
+        "Content-Type": 'application/json' //important
+    }
+  })
+    .then((res) => res.json())
+}
 
-  let userPrefObject
-  const userInfo = (() => {loadUserPrefs().then((data) => {
-    return data.user.id
-  })})()
-
-  if (userInfo !== undefined) {
-    console.log(userInfo)
-
-  }
-
+export function deleteSavedLocation(locationObject){
+  const body = JSON.stringify(locationObject)
+  const jwt = localStorage.getItem("jwtToken")
+  return fetch("http://localhost:3000/api/v1/users/me", {
+    method: 'DELETE',
+    body: body,
+    headers: {
+      "Authorization": "Bearer " + jwt,
+      "Content-Type": 'application/json'
+    }
+  }).then((res) => res.json())
 }

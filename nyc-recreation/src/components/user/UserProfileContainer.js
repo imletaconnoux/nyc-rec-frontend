@@ -10,7 +10,6 @@ export default class UserProfileContainer extends React.Component {
 
   componentDidMount() {
     const thisUserInfo = loadUserPrefs().then((data) =>{
-    console.log(data)
     this.setState({
       user: data.user.username,
       zoos: data.prefs.zoos,
@@ -22,18 +21,8 @@ export default class UserProfileContainer extends React.Component {
     )
   }
 
-  // loadUserPrefs() {
-  //    const myZoos = this.state.preferences.zoos.map((myZooPrefs) => {
-  //     return <Z
-  //   })
-  //
-  // }
-
-
   render() {
-
     if (this.state.user !== "") {
-      debugger
       return (
         <div>
           <h2>Welcome {this.state.user}!</h2>

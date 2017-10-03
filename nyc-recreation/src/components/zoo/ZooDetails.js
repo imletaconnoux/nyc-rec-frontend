@@ -3,9 +3,7 @@ import React from 'react'
 export default class ZooDetails extends React.Component {
 
   handleClick = (event) => {
-
     this.props.save(this.props.thisZoo)
-
   }
 
   render() {
