@@ -29,3 +29,17 @@ export function loadUserPrefs(){
     }
   }).then((res) => res.json())
 }
+
+export function saveLocation(locationObject){
+
+  let userPrefObject
+  const userInfo = (() => {loadUserPrefs().then((data) => {
+    return data.user.id
+  })})()
+
+  if (userInfo !== undefined) {
+    console.log(userInfo)
+
+  }
+
+}

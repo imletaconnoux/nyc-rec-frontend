@@ -4,7 +4,7 @@ import ZooItem from './ZooItem.js'
 
 const ZooList = (props) => {
   const mappedList = props.zooList.map((zoo, index) => {
-    return(<ZooItem key={index} zoo={zoo}/>)
+    return(<ZooItem key={index} zoo={zoo} save={props.save}/>)
   })
   return (
     <div>
