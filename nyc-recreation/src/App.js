@@ -9,7 +9,7 @@ import { Route, Link } from 'react-router-dom'
 import Nav from './components/Nav.js'
 import WeatherContainer from './components/WeatherContainer.js'
 import UserContainer from './components/user/UserContainer.js'
-import { loginUser, logoutUser, loadUserPrefs } from './services/user'
+import { loginUser, logoutUser, loadUserPrefs, signupUser } from './services/user'
 import Authorize from './components/Authorize'
 
 class App extends Component {
@@ -21,6 +21,17 @@ class App extends Component {
 
   login = (loginParams) => {
     loginUser(loginParams)
+      .then((user) => {
+        localStorage.setItem("jwtToken", user.jwt)
+        this.setState({
+          user,
+          isLoggedIn: true
+        })
+      })
+  }
+
+  signup = (loginParams) => {
+    signupUser(loginParams)
       .then((user) => {
         localStorage.setItem("jwtToken", user.jwt)
         this.setState({
@@ -57,7 +68,7 @@ class App extends Component {
         <TennisContainer/>
         <ZooContainer/>
         <Route exact path="/" component={WeatherContainer}/>
-        <UserContainer onLogin={this.login} user={this.state.user}/>
+        <UserContainer onLogin={this.login} signUp={this.signup} user={this.state.user}/>
       </div>
     );
   }

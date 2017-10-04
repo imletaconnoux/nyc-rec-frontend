@@ -1,4 +1,5 @@
 import React from 'react'
+import {signupUser} from '../../services/user'
 
 class LoginForm extends React.Component{
 
@@ -15,14 +16,21 @@ class LoginForm extends React.Component{
   handleSubmit = (event) => {
     event.preventDefault()
     if (this.state.usernameInput !== "" && this.state.passwordInput !== ""){
-      const user = { username: this.state.usernameInput, password: this.state.passwordInput }
+      const user = { username: this.state.usernameInput, password: this.state.passwordInput, newUser: this.state.newUser }
       this.props.onSubmit(user)
     }
     this.setState({
       usernameInput: "",
-      passwordInput: ""
+      passwordInput: "",
+      newUser: false
     })
   }
+
+handleUserButton = (event) => {
+  this.setState({
+    newUser: !this.state.newUser
+  })
+}
 
 handleUsernameChange = (event) => {
   this.setState({
@@ -38,6 +46,7 @@ handlePasswordChange = (event) => {
 
 
   render(){
+    console.log(this.state)
     return(
       <div>
        <h3>Welcome to NYC Recreation! Log in or create a new account below</h3>
@@ -51,14 +60,8 @@ handlePasswordChange = (event) => {
             </div>
             <div className="radio">
               <label>
-                <input type="radio" name="new"/>
+                <input type="radio" name="new" onChange={this.handleUserButton}/>
                 New User
-              </label>
-            </div>
-            <div className="radio">
-              <label>
-                <input type="radio" name="existing"/>
-                Existing
               </label>
             </div>
             <input type="submit"/>

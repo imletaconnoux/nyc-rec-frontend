@@ -11,6 +11,19 @@ export function loginUser(loginParams) {
     .then((res) => res.json())
 }
 
+export function signupUser(loginParams) {
+  const body = JSON.stringify(loginParams)
+  return fetch("http://localhost:3000/api/v1/users", {
+    method: 'post',
+    body: body,
+    headers: {
+      "Accept": "application/json",
+      "Content-Type":"application/json"
+    }
+  })
+    .then((res) => res.json())
+}
+
 export function logoutUser(){
   localStorage.removeItem("jwtToken")
 }

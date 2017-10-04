@@ -8,7 +8,11 @@ import UserProfileContainer from './UserProfileContainer.js'
 class UserContainer extends React.Component{
 
   handleLoginSubmit = (user) => {
-    this.props.onLogin(user)
+    if (user.newUser === false) {
+      this.props.onLogin({username: user.username, password: user.password})
+    } else {
+      this.props.signUp({username: user.username, password: user.password})
+    }
   }
 
   render(){
