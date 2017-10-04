@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 
 
 const TennisItem = (props) => {
-
   const handleClick = (event) => {
     props.deleteTennisLocation(props.court)
+    alert(`You deleted ${props.court.Name} from your preferences!`)
   }
   if (props.user) {
     return(

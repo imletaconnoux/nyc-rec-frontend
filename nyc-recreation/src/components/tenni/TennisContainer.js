@@ -25,6 +25,7 @@ export default class TennisContainer extends React.Component {
   saveLocation = (tennis) => {
     const tennisObject = {tenni_id: tennis.id}
     saveLocation(tennisObject)
+    alert(`You added ${tennis.Name} to your preferences!`)
   }
 
   render() {

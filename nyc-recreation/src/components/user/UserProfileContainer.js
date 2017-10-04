@@ -12,24 +12,32 @@ export default class UserProfileContainer extends React.Component {
   deleteZooLocation = (zoo) => {
     const zooObject = {zoo_id: zoo.id}
     deleteSavedLocation(zooObject)
+    this.thisUserPrefs()
+    window.location.reload()
   }
 
   deletePoolLocation = (pool) => {
     const poolObject = {pool_id: pool.id}
     deleteSavedLocation(poolObject)
+    this.thisUserPrefs()
+    window.location.reload()
   }
 
   deleteBbqLocation = (bbq) => {
     const bbqObject = {bbq_id: bbq.id}
     deleteSavedLocation(bbqObject)
+    this.thisUserPrefs()
+    window.location.reload()
   }
 
   deleteTennisLocation = (tenni) => {
     const tenniObject = {tenni_id: tenni.id}
     deleteSavedLocation(tenniObject)
+    this.thisUserPrefs()
+    window.location.reload()
   }
 
-  componentDidMount() {
+  thisUserPrefs = () =>{
     const thisUserInfo = loadUserPrefs().then((data) =>{
     this.setState({
       user: data.user.username,
@@ -40,6 +48,11 @@ export default class UserProfileContainer extends React.Component {
       })
     }
     )
+
+  }
+
+  componentDidMount() {
+    this.thisUserPrefs()
   }
 
   render() {

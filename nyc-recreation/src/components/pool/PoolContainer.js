@@ -25,6 +25,7 @@ export default class PoolContainer extends React.Component {
   saveLocation = (pool) => {
     const poolObject = {pool_id: pool.id}
     saveLocation(poolObject)
+    alert(`You added ${pool.Name} to your preferences!`)
   }
 
   render() {

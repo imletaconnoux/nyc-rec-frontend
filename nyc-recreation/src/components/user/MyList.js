@@ -31,7 +31,7 @@ const mappedBbqsList = (function () {
 const mappedTennisList = (function () {
   if (props.locations.tennis.length > 0) {
     const tennis = props.locations.tennis.map((tenni, index) => {
-      return (<TennisItem key={index} user={props.locations.user} court={tenni.tenni_info} deleteTennisLocation={props.deleteTennisLocation}/>)
+      return (<TennisItem history={props.history} key={index} user={props.locations.user} court={tenni.tenni_info} deleteTennisLocation={props.deleteTennisLocation}/>)
     })
     return tennis
   } else {

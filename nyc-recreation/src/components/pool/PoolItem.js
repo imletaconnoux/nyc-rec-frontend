@@ -5,6 +5,7 @@ const PoolItem = (props) => {
 
   const handleClick = (event) => {
     props.deletePoolLocation(props.pool)
+    alert(`You deleted ${props.pool.Name} from your preferences!`)
   }
   if (props.user) {
     return(

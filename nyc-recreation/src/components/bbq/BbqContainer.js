@@ -24,6 +24,7 @@ export default class BbqContainer extends React.Component {
   saveLocation = (bbq) => {
     const bbqObject = {bbq_id: bbq.id}
     saveLocation(bbqObject)
+    alert(`You added ${bbq.Name} to your preferences!`)
   }
 
   render() {

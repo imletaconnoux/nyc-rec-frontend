@@ -6,6 +6,7 @@ const BbqItem = (props) => {
 
   const handleClick = (event) => {
     props.deleteBbqLocation(props.bbq)
+    alert(`You deleted ${props.bbq.Name} from your preferences!`)
   }
   if(props.user) {
     return (

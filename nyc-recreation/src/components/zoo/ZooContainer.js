@@ -25,7 +25,7 @@ export default class ZooContainer extends React.Component {
   saveLocation = (zoo) => {
     const zooObject = {zoo_id: zoo.id}
     saveLocation(zooObject)
-
+    alert(`You added ${zoo.Name} to your preferences!`)
   }
 
   render() {

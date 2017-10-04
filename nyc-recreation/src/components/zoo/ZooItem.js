@@ -6,6 +6,7 @@ const ZooItem = (props) => {
 
     const handleClick = (event) => {
       props.deleteZooLocation(props.zoo)
+      alert(`You deleted ${props.zoo.Name} from your preferences!`)
     }
     if(props.user) {
       return (
