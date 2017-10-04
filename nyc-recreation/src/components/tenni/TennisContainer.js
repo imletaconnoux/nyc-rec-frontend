@@ -27,14 +27,8 @@ export default class TennisContainer extends React.Component {
     saveLocation(tennisObject)
   }
 
-  deleteLocation = (tennis) => {
-    const tennisObject = {tenni_id: tennis.id}
-    deleteSavedLocation(tennisObject)
-  }
-
   render() {
     if(this.state.courts) {
-
       return(
         <div>
           <Route exact path ="/tennis" render={(props) => <TennisList tennisList={this.state.courts} {...props} save={this.saveLocation}/>}/>

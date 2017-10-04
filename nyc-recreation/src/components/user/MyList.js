@@ -6,11 +6,10 @@ import TennisItem from '../tenni/TennisItem'
 import {Link} from 'react-router-dom'
 
 const MyList = (props) => {
-
   const mappedZoosList = (function() {
     if (props.locations.zoos.length > 0) {
       const zoos = props.locations.zoos.map((zoo, index) => {
-        return (<ZooItem key={index} zoo={zoo.zoo_info}/>)
+        return (<ZooItem key={index} user={props.locations.user} zoo={zoo.zoo_info} deleteZooLocation={props.deleteZooLocation}/>)
       })
       return zoos
     } else {
@@ -21,7 +20,7 @@ const MyList = (props) => {
 const mappedBbqsList = (function () {
   if (props.locations.bbqs.length > 0) {
     const bbqs = props.locations.bbqs.map((bbq, index) => {
-      return (<BbqItem key={index} bbq={bbq.bbq_info}/>)
+      return (<BbqItem key={index} user={props.locations.user} bbq={bbq.bbq_info} deleteBbqLocation={props.deleteBbqLocation}/>)
     })
     return bbqs
   } else {
@@ -32,7 +31,7 @@ const mappedBbqsList = (function () {
 const mappedTennisList = (function () {
   if (props.locations.tennis.length > 0) {
     const tennis = props.locations.tennis.map((tenni, index) => {
-      return (<TennisItem key={index} court={tenni.tenni_info}/>)
+      return (<TennisItem key={index} user={props.locations.user} court={tenni.tenni_info} deleteTennisLocation={props.deleteTennisLocation}/>)
     })
     return tennis
   } else {
@@ -44,7 +43,7 @@ const mappedTennisList = (function () {
 
   if (props.locations.pools.length > 0) {
       const pools = props.locations.pools.map((pool, index) => {
-      return (<PoolItem key={index} pool={pool.pool_info}/>)
+      return (<PoolItem key={index} user={props.locations.user} pool={pool.pool_info} deletePoolLocation={props.deletePoolLocation}/>)
   })
   return pools
 } else {

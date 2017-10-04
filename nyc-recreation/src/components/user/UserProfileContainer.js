@@ -1,11 +1,32 @@
 import React from 'react'
 import { loadUserPrefs } from '../../services/user'
 import MyList from './MyList'
+import { deleteSavedLocation } from '../../services/user'
 
 export default class UserProfileContainer extends React.Component {
 
   state = {
     user: ""
+  }
+
+  deleteZooLocation = (zoo) => {
+    const zooObject = {zoo_id: zoo.id}
+    deleteSavedLocation(zooObject)
+  }
+
+  deletePoolLocation = (pool) => {
+    const poolObject = {pool_id: pool.id}
+    deleteSavedLocation(poolObject)
+  }
+
+  deleteBbqLocation = (bbq) => {
+    const bbqObject = {bbq_id: bbq.id}
+    deleteSavedLocation(bbqObject)
+  }
+
+  deleteTennisLocation = (tenni) => {
+    const tenniObject = {tenni_id: tenni.id}
+    deleteSavedLocation(tenniObject)
   }
 
   componentDidMount() {
@@ -26,7 +47,7 @@ export default class UserProfileContainer extends React.Component {
       return (
         <div>
           <h2>Welcome {this.state.user}!</h2>
-          <MyList locations={this.state}/>
+          <MyList locations={this.state} deleteZooLocation={this.deleteZooLocation} deletePoolLocation={this.deletePoolLocation} deleteBbqLocation={this.deleteBbqLocation} deleteTennisLocation={this.deleteTennisLocation}/>
         </div>
       )
     } else {
